@@ -4,10 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./assets/image/not-hacker-club.png">
-
+    <link rel="stylesheet" href="style.css">
     <title>Not Fight Club Game</title>
 </head>
+
 <body>
-    
+
+    <div class="tabs">
+        
+        <div class="tab-buttons">
+            <button class="tab-btn active" data-tab="tab1">Sign Up</button>
+            <button class="tab-btn" data-tab="tab2">Main</button>
+            <button class="tab-btn" data-tab="tab3">Character</button>
+            <button class="tab-btn" data-tab="tab4">Settings</button>
+            <button class="tab-btn" data-tab="tab5">Battle</button>
+        </div>
+
+        <select class="tab-select">
+            <option value="tab1">Sign Up</option>
+            <option value="tab2">Main</option>
+            <option value="tab3">Character</option>
+            <option value="tab3">Settings</option>
+            <option value="tab3">Battle</option>
+        </select>
+
+        <div class="tab-content active" id="tab1">
+            <p>Здесь регистрация...1223243534</p>
+        </div>
+
+        <div class="tab-content" id="tab2">
+            <p>Это Main...</p>
+        </div>
+
+        <div class="tab-content" id="tab3">
+            <p>Здесь Character...</p>
+        </div>
+
+        <div class="tab-content" id="tab4">
+            <p>There is Settings...</p>
+        </div>
+
+        <div class="tab-content" id="tab5">
+            <p>There is Battle...</p>
+        </div>
+
+    </div>
+
+    <script src="game.js"></script>
+
 </body>
+
 </html>
