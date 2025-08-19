@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +12,7 @@
 <body>
 
     <div class="tabs">
-        
+
         <div class="tab-buttons">
             <button class="tab-btn active" data-tab="tab1">Sign Up</button>
             <button class="tab-btn" data-tab="tab2">Main</button>
@@ -29,7 +30,15 @@
         </select>
 
         <div class="tab-content active" id="tab1">
-            <p>Здесь регистрация...1223243534</p>
+            
+            <form id="nameForm">
+                <label for="username">Character name:</label>
+                <input type="text" id="username" placeholder="Name">
+                <button type="submit" id="saveBtn">Save</button>
+            </form>
+
+            <h3 id="greeting"></h3>
+
         </div>
 
         <div class="tab-content" id="tab2">

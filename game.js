@@ -31,4 +31,34 @@ function activateTab(tabId) {
   tabSelect.value = tabId;
 }
 
+
+
 // ---------------------------------------------------------------------------
+document.addEventListener('DOMContentLoaded', () => {
+  
+  const form = document.getElementById('nameForm');
+  const input = document.getElementById('username');
+  const button = document.getElementById('saveBtn');
+  const greeting = document.getElementById('greeting');
+
+  // Проверка localStorage при загрузке страницы
+  const savedName = localStorage.getItem('username');
+  if (savedName) {
+    greeting.textContent = `Hello, ${savedName}!`;
+    input.value = savedName;
+    button.disabled = true; // деактивация кнопки
+  }
+
+  // Сохр. имени по нажатию кнопки
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = input.value.trim();
+    if (name) {
+      localStorage.setItem('username', name);
+      greeting.textContent = `Hello, ${name}!`;
+      button.disabled = true;
+    } else {
+      alert('Input Character Name');
+    }
+  });
+});
