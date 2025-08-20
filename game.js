@@ -17,7 +17,7 @@ tabSelect.addEventListener("change", () => {
 });
 
 
-// Убираем или добавляем класс active
+// Убираем или добавляем класс active для tabId
 function activateTab(tabId) {
 
   tabButtons.forEach(btn => {
@@ -61,4 +61,15 @@ document.addEventListener('DOMContentLoaded', () => {
       alert('Input Character Name');
     }
   });
+});
+
+
+
+// ---------------------------------------------------------------------------
+const fightButton = document.getElementById("fightBtn");
+// console.log(fightButton);
+
+fightButton.addEventListener("click", (event) => {
+  event.preventDefault();
+  activateTab('tab5');
 });
