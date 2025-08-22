@@ -92,14 +92,54 @@ fightButton.addEventListener("click", (event) => {
 });
 
 
+// ---------------------------------------------------------------------------
+let hiScore = 0;
+let totalWins = 0;
+let totalLoses = 0;
+let numberAvatar = 0;
+
+// const savedAvatar = localStorage.getItem('sAvatar');
+
+      // const savedDate = localStorage.getItem('dateupdate');
+      // const savedTime = localStorage.getItem('timeupdate');
+
+      // if (savedDate === null || savedTime === null) {
+      //     localStorage.setItem('dateupdate', data.dateupdate);
+      //     localStorage.setItem('timeupdate', data.timeupdate);
+      // } else {
+      //     // Проверяем, изменились ли данные
+      //     if (savedDate !== data.dateupdate || savedTime !== data.timeupdate) {
+      //         localStorage.setItem('dateupdate', data.dateupdate);
+      //         localStorage.setItem('timeupdate', data.timeupdate);
+      //         // Перезагрузка страницы
+      //         //location.reload();
+      //         renderPage();
+      //     }
+      // }
+
+
+
+
+
+
+
+
+const img_avatar = document.querySelector('.character-scores img');
+img_avatar.src = `./assets/image/good${numberAvatar}.png`
+
+
+
+
+
+
 
 // ---------------------------------------------------------------------------
-const radios = document.querySelectorAll('.image-radio-hybrid input');
+const radios = document.querySelectorAll('.image-radio-choose input');
 
 radios.forEach(radio => {
   radio.addEventListener('change', () => {
     // убираем выделение у всех
-    document.querySelectorAll('.image-radio-hybrid img').forEach(img => {
+    document.querySelectorAll('.image-radio-choose img').forEach(img => {
       img.classList.remove('selected');
     });
 
@@ -107,5 +147,8 @@ radios.forEach(radio => {
     radio.nextElementSibling.classList.add('selected');
 
     console.log("Выбрана картинка:", radio.value);
+    numberAvatar = radio.value;
+    img_avatar.src = `./assets/image/good${numberAvatar}.png`
+
   });
 });

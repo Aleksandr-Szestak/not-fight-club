@@ -92,14 +92,43 @@ body {
   }
 }
 
+/* -------------------------------------------------------------------- */
+.character-unit {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.character-scores {
+  display: flex;
+  height: 70%;
+  border: red 1px dotted;
+}
+
+.character-scores img {
+  display: block;
+  width: 256px;
+  aspect-ratio: 2 / 3;
+  border-radius: 10px;
+}
+
+.character-scores .descriptions {
+  display: flex;
+  flex-direction: column;  
+}
+
+.image-radio-choose {
+  height: 30%;
+}
 
 
 
-.image-radio-hybrid input {
+/* -------------------------------------------------------------------- */
+.image-radio-choose input {
   display: none;
 }
 
-.image-radio-hybrid img {
+.image-radio-choose img {
   width: 100px;
   border: 2px solid transparent;
   border-radius: 8px;
@@ -108,12 +137,12 @@ body {
 }
 
 /* hover эффект */
-.image-radio-hybrid img:hover {
+.image-radio-choose img:hover {
   transform: scale(1.05);
 }
 
 /* выделение выбранного */
-.image-radio-hybrid img.selected {
+.image-radio-choose img.selected {
   border-color: dodgerblue;
   box-shadow: 0 0 10px rgba(30,144,255,0.6);
 }
