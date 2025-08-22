@@ -15,10 +15,10 @@
 
         <div class="tab-buttons">
             <button class="tab-btn active" data-tab="tab1">Sign Up</button>
-            <button class="tab-btn" data-tab="tab2">Main</button>
-            <button class="tab-btn" data-tab="tab3">Character</button>
-            <button class="tab-btn" data-tab="tab4">Settings</button>
-            <button class="tab-btn" data-tab="tab5">Battle</button>
+            <button class="tab-btn" data-tab="tab2" disabled>Main</button>
+            <button class="tab-btn" data-tab="tab3" disabled>Character</button>
+            <button class="tab-btn" data-tab="tab4" disabled>Settings</button>
+            <button class="tab-btn" data-tab="tab5" disabled>Battle</button>
         </div>
 
         <select class="tab-select">
@@ -28,9 +28,10 @@
             <option value="tab4">Settings</option>
             <option value="tab5">Battle</option>
         </select>
-
+        
+        <!-- (1) Sign Up  -->
         <div class="tab-content active" id="tab1">
-            
+
             <form id="nameForm">
                 <label for="username">Character name:</label>
                 <input type="text" id="username" placeholder="Name">
@@ -41,20 +42,43 @@
 
         </div>
 
+        <!-- (2) Main  -->
         <div class="tab-content" id="tab2">
             <form id="mainForm">
                 <button type="submit" id="fightBtn">Start fight!</button>
             </form>
         </div>
 
+        <!-- (3) Character  -->
         <div class="tab-content" id="tab3">
-
+            
+            
+            <div class="image-radio-hybrid">
+                <label>
+                    <input type="radio" name="image" value="1">
+                    <img src="./assets/image/good1.png" alt="Anonymous">
+                </label>
+                <label>
+                    <input type="radio" name="image" value="2">
+                    <img src="./assets/image/good2.png" alt="Neo">
+                </label>
+                <label>
+                    <input type="radio" name="image" value="3">
+                    <img src="./assets/image/good3.png" alt="Duke">
+                </label>
+                <label>
+                    <input type="radio" name="image" value="4">
+                    <img src="./assets/image/good4.png" alt="Doomguy">
+                </label>
+            </div>
         </div>
 
+        <!-- (4) Settings  -->    
         <div class="tab-content" id="tab4">
             <p>There is Settings...</p>
         </div>
 
+        <!-- (5) Battle  -->
         <div class="tab-content" id="tab5">
             <p>There is Battle...</p>
         </div>
