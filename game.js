@@ -93,43 +93,45 @@ fightButton.addEventListener("click", (event) => {
 
 
 // ---------------------------------------------------------------------------
-let hiScore = 0;
 let totalWins = 0;
 let totalLoses = 0;
 let numberAvatar = 0;
 
-// const savedAvatar = localStorage.getItem('sAvatar');
+const savedName = localStorage.getItem('username');
+const savedTotalWins = localStorage.getItem('storageTotalWins');
+const savedTotalLoses = localStorage.getItem('storageTotalLoses');
+const savedNumberAvatar = localStorage.getItem('storageNumberAvatar');
 
-      // const savedDate = localStorage.getItem('dateupdate');
-      // const savedTime = localStorage.getItem('timeupdate');
+if (savedTotalWins === null ||
+    savedTotalLoses === null ||
+    savedNumberAvatar === null) {
+    // первое сохр.
+    localStorage.setItem('storageTotalWins', totalWins);
+    localStorage.setItem('storageTotalLoses', totalLoses);
+    localStorage.setItem('storageNumberAvatar', numberAvatar);
+} else {
 
-      // if (savedDate === null || savedTime === null) {
-      //     localStorage.setItem('dateupdate', data.dateupdate);
-      //     localStorage.setItem('timeupdate', data.timeupdate);
-      // } else {
-      //     // Проверяем, изменились ли данные
-      //     if (savedDate !== data.dateupdate || savedTime !== data.timeupdate) {
-      //         localStorage.setItem('dateupdate', data.dateupdate);
-      //         localStorage.setItem('timeupdate', data.timeupdate);
-      //         // Перезагрузка страницы
-      //         //location.reload();
-      //         renderPage();
-      //     }
-      // }
-
-
-
-
-
+  totalWins = savedTotalWins;
+  totalLoses = savedTotalLoses;
+  numberAvatar = savedNumberAvatar;
+       
+        // Перезагрузка страницы
+        //location.reload();
+        // renderPage();
+}
 
 
 
 const img_avatar = document.querySelector('.character-scores img');
-img_avatar.src = `./assets/image/good${numberAvatar}.png`
+img_avatar.src = numberAvatar === 0 ? `./assets/image/no-avatar.png`:`./assets/image/good${numberAvatar}.png`;
 
+const out_name = document.getElementById('name-player');
+const out_wins = document.getElementById('wins');
+const out_loses = document.getElementById('loses');
 
-
-
+out_name.textContent = `${savedName}`;
+out_wins.textContent = `:Wins: ${totalWins}`;
+out_loses.textContent = `Loses: ${totalLoses}`;
 
 
 
@@ -146,9 +148,11 @@ radios.forEach(radio => {
     // подсвечиваем выбранное
     radio.nextElementSibling.classList.add('selected');
 
-    console.log("Выбрана картинка:", radio.value);
+    // console.log("Выбрана картинка:", radio.value);
+
     numberAvatar = radio.value;
-    img_avatar.src = `./assets/image/good${numberAvatar}.png`
+    img_avatar.src = `./assets/image/good${numberAvatar}.png`;
+    localStorage.setItem('storageNumberAvatar', numberAvatar);
 
   });
 });
