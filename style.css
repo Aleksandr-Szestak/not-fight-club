@@ -102,7 +102,7 @@ body {
 .character-scores {
   display: flex;
   height: 70%;
-  border: red 1px dotted;
+  /* border: red 1px dotted; */
 }
 
 .character-scores img {
@@ -114,7 +114,9 @@ body {
 
 .character-scores .descriptions {
   display: flex;
-  flex-direction: column;  
+  flex-direction: column;
+  
+  font: 2em sans-serif;
 }
 
 .image-radio-choose {
