@@ -1,0 +1,26 @@
+.image-radio-choose {
+  height: 30%;
+}
+
+.image-radio-choose input {
+  display: none;
+}
+
+.image-radio-choose img {
+  width: 100px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, border-color 0.3s, box-shadow 0.3s;
+}
+
+/* hover эффект */
+.image-radio-choose img:hover {
+  transform: scale(1.05);
+}
+
+/* выделение выбранного */
+.image-radio-choose img.selected {
+  border-color: dodgerblue;
+  box-shadow: 0 0 10px rgba(30,144,255,0.6);
+}
