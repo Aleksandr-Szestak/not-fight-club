@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./assets/image/not-hacker-club.png">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./styles/main.css">
     <title>Not Fight Club Game</title>
 </head>
 
@@ -88,7 +88,15 @@
 
         <!-- (4) Settings  -->    
         <div class="tab-content" id="tab4">
-            <p>Tere is Settings...</p>
+            
+            <form id="settingsForm">
+                <label for="changeUsername">Change character name:</label>
+                <input type="text" id="changeUsername" placeholder="Input new name">
+                <button type="submit" id="changeBtn">Change</button>
+            </form>
+
+            <h3 id="greetingAgain"></h3>
+
         </div>
 
         <!-- (5) Battle  -->
@@ -98,7 +106,7 @@
 
     </div>
 
-    <script src="game.js"></script>
+    <script type="module" src="./src/main.js"></script>
 
 </body>
 
