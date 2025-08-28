@@ -1,38 +1,53 @@
 .battle-unit {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* три секции по горизонтали */
-  grid-template-rows: 4fr 1fr;           /* верх 80%, низ 20% */
-  height: 100%; /* тянется по родителю (например, 80vh) */
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 4fr 1fr;
+  height: 100%;
   gap: 10px;
 }
 
 .battle-process {
-  display: contents; /* делает контейнер "прозрачным" для grid */
+  display: contents;
 }
 
 .battle-process > div {
-  background: lightblue;
+  border: red 1px dotted;
   padding: 10px;
 }
 
 .battle-logs {
-  grid-column: 1 / -1; /* занимает всю ширину */
-  background: lightgray;
+  grid-column: 1 / -1; /* на полн. ширину */
+  border: blue 1px dotted;
   padding: 10px;
 }
 
-/* #itI,
+#itI,
 #enemy {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-} */
+}
 
 #itI img,
 #enemy img {
-    display: block;
-    width: 50%;
-    aspect-ratio: 2 / 3;
-    border-radius: 10px;
+  height: clamp(160px, 30vh, 360px);
+  width: auto;
+  border-radius: 10px;
+  display: block;
+}
+
+.fight-direction {
+  display: flex;
+  justify-content: space-between;
+}
+
+.checkbox-attack label,
+.checkbox-protection label {
+  display: block;
+  margin-bottom: 1em;
+}
+
+h4 {
+  margin-bottom: 1.5em;
 }

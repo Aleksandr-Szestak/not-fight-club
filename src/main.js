@@ -4,6 +4,8 @@ import { initFight } from "./fight.js";
 import { initStats } from "./playerstats.js";
 import { initAvatarChoose } from "./avatarchoose.js";
 import { initSettings } from "./settings.js";
+import { initBattle } from "./battle.js";
+
 
 document.addEventListener('DOMContentLoaded', () => {
   initTabs();
@@ -12,4 +14,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initStats();
   initAvatarChoose();
   initSettings();
+  initBattle()
 });
