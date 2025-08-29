@@ -54,3 +54,12 @@ export const enemies = [
     }
 
 ];
+
+export const arrVulnerability = [
+    'head',
+    'body',
+    'lefthand',
+    'righthand',
+    'leftleg',
+    'rightleg'
+];

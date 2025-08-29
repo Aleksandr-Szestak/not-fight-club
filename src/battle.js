@@ -1,4 +1,4 @@
-import { enemies, state } from "./state.js";
+import {state, enemies, arrVulnerability} from "./state.js";
 
 export function initBattle() {
 
@@ -106,9 +106,28 @@ export function initBattle() {
         // console.log(currentForceAttack);
         // console.log(currentForceProtection);
 
+        // console.log(state.attackFlag);
+        // console.log(state.protectionFlag);
+
+        let arrAttackArea = randomNumbers(5, currentAttackArea);
+        let arrProtectionArea = randomNumbers(5, currentProtectionArea);
+
+        // console.log('arrAttackArea', arrAttackArea);
+        arrAttackArea.forEach((value, index, array) => {
+            array[index] = arrVulnerability[value];
+        });
+        // console.log('arrAttackArea', arrAttackArea);
+
+        // console.log('arrProtectionArea', arrProtectionArea);
+        arrProtectionArea.forEach((value, index, array) => {
+            array[index] = arrVulnerability[value];
+        });
+        // console.log('arrProtectionArea', arrProtectionArea);
+
+        
+
+
     });
-
-
 }
 
 
@@ -124,3 +143,21 @@ function chance(probability) {
   return Math.random() < probability;
 }
 
+// return array random numbers ------------------------------
+function randomNumbers (endInterval, amount) {
+
+let arrNumbers = [];
+let randomFromInterval;
+
+
+for (let i = 0; i < amount; i++) {
+    while (arrNumbers[i] === undefined) {
+        randomFromInterval = Math.floor(Math.random() * (endInterval + 1));
+        if (arrNumbers.indexOf(randomFromInterval) === -1) {
+            arrNumbers[i] = randomFromInterval;
+        }
+    }
+}
+
+return arrNumbers;
+}
