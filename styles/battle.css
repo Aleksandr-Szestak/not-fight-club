@@ -39,7 +39,30 @@
 
 .fight-direction {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
+}
+
+.checkboxes-direction {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button-direction {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-direction button {
+  display: block;
+  width: 5em;
+  height: 3em;
+}
+
+.button-direction button:disabled {
+  opacity: 0.8;
+  cursor: not-allowed;
 }
 
 .checkbox-attack label,

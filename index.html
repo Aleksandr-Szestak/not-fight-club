@@ -105,96 +105,109 @@
             <div class="battle-unit">
 
                 <div class="battle-process">
+                    
                     <div id="itI">
                         <p id="name-player-1"></p>
-                        <img src="" alt="avatar image">
-                        <p>Health 150/150</p>
+                        <img src="" alt="player 1 avatar">
+                        <p id="state-player-1"></p>
                     </div>
 
                     <div class="fight-direction">
-                        <div class="checkbox-attack">
-                            
-                            <h4>Attack zone</h4>
 
-                            <form action="">
+                        <div class="checkboxes-direction">
 
-                                <label for="head">
-                                    <input id="head" name="attack" type="radio">
-                                    Head
-                                </label>
-                            
-                                <label for="body">
-                                    <input id="body" name="attack" type="radio">
-                                    Body
-                                </label>
+                            <div class="checkbox-attack">
                                 
-                                <label for="lefthand">
-                                    <input id="lefthand" name="attack" type="radio">
-                                    Left Hand
-                                </label>
-                                
-                                <label for="righthand">
-                                    <input id="righthand" name="attack" type="radio">
-                                    Right Hand
-                                </label>
-                                
-                                <label for="leftleg">
-                                    <input id="leftleg" name="attack" type="radio">
-                                    Left Leg
-                                </label>
-                                
-                                <label for="rightleg">
-                                    <input id="rightleg" name="attack" type="radio">
-                                    Right Leg
-                                </label>
+                                <h4>Attack zone</h4>
 
-                            </form>
+                                <form action="">
 
+                                    <label>
+                                        <input name="attack" value="head" type="radio">
+                                        Head
+                                    </label>
+                                
+                                    <label>
+                                        <input name="attack" value="body" type="radio">
+                                        Body
+                                    </label>
+                                    
+                                    <label>
+                                        <input name="attack" value="lefthand" type="radio">
+                                        Left Hand
+                                    </label>
+                                    
+                                    <label>
+                                        <input name="attack" value="righthand" type="radio">
+                                        Right Hand
+                                    </label>
+                                    
+                                    <label>
+                                        <input name="attack" value="leftleg" type="radio">
+                                        Left Leg
+                                    </label>
+                                    
+                                    <label>
+                                        <input name="attack" value="rightleg" type="radio">
+                                        Right Leg
+                                    </label>
+
+                                </form>
+
+                            </div>
+
+                            <div class="checkbox-protection">
+                                <h4>Protection zone</h4>
+
+                                <form action="">
+
+                                    <label>
+                                        <input name="protection" value="head" type="checkbox">
+                                        Head
+                                    </label>
+                                
+                                    <label>
+                                        <input name="protection" value="body" type="checkbox">
+                                        Body
+                                    </label>
+                                    
+                                    <label>
+                                        <input name="protection" value="lefthand" type="checkbox">
+                                        Left Hand
+                                    </label>
+                                    
+                                    <label>
+                                        <input name="protection" value="righthand" type="checkbox">
+                                        Right Hand
+                                    </label>
+                                    
+                                    <label>
+                                        <input name="protection" value="leftleg" type="checkbox">
+                                        Left Leg
+                                    </label>
+                                    
+                                    <label>
+                                        <input name="protection" value="rightleg" type="checkbox">
+                                        Right Leg
+                                    </label>
+
+                                </form>
+                            </div>
+                        
                         </div>
-                        <div class="checkbox-protection">
-                            <h4>Protection zone</h4>
 
-                            <form action="">
-
-                                <label for="head">
-                                    <input id="head" name="attack" type="checkbox">
-                                    Head
-                                </label>
-                            
-                                <label for="body">
-                                    <input id="body" name="attack" type="checkbox">
-                                    Body
-                                </label>
-                                
-                                <label for="lefthand">
-                                    <input id="lefthand" name="attack" type="checkbox">
-                                    Left Hand
-                                </label>
-                                
-                                <label for="righthand">
-                                    <input id="righthand" name="attack" type="checkbox">
-                                    Right Hand
-                                </label>
-                                
-                                <label for="leftleg">
-                                    <input id="leftleg" name="attack" type="checkbox">
-                                    Left Leg
-                                </label>
-                                
-                                <label for="rightleg">
-                                    <input id="rightleg" name="attack" type="checkbox">
-                                    Right Leg
-                                </label>
-
-                            </form>
+                        <div class="button-direction">
+                            <button type="button" id="playBtn" disabled>Play!</button>
                         </div>
+
                     </div>
 
                     <div id="enemy">
-                        <p id="name-player-2">Name</p>
-                        <img src="./assets/image/bad2.png" alt="avatar image">
-                        <p>Health 150/150</p>
+                        <p id="name-player-2"></p>
+                        <img src="" alt="player 2 avatar">
+                        <p id="state-player-2"></p>
                     </div>
+
                 </div>
 
                 <div class="battle-logs">
