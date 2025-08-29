@@ -1,0 +1,76 @@
+.battle-unit {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 4fr 1fr;
+  height: 100%;
+  gap: 10px;
+}
+
+.battle-process {
+  display: contents;
+}
+
+.battle-process > div {
+  border: red 1px dotted;
+  padding: 10px;
+}
+
+.battle-logs {
+  grid-column: 1 / -1; /* на полн. ширину */
+  border: blue 1px dotted;
+  padding: 10px;
+}
+
+#itI,
+#enemy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#itI img,
+#enemy img {
+  height: clamp(160px, 30vh, 360px);
+  width: auto;
+  border-radius: 10px;
+  display: block;
+}
+
+.fight-direction {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.checkboxes-direction {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button-direction {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-direction button {
+  display: block;
+  width: 5em;
+  height: 3em;
+}
+
+.button-direction button:disabled {
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+
+.checkbox-attack label,
+.checkbox-protection label {
+  display: block;
+  margin-bottom: 1em;
+}
+
+h4 {
+  margin-bottom: 1.5em;
+}

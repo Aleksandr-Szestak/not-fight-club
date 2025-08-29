@@ -28,7 +28,7 @@
             <option value="tab4">Settings</option>
             <option value="tab5">Battle</option>
         </select>
-        
+
         <!-- (1) Sign Up  -->
         <div class="tab-content active" id="tab1">
 
@@ -51,7 +51,7 @@
 
         <!-- (3) Character  -->
         <div class="tab-content" id="tab3">
-            
+
             <div class="character-unit">
 
                 <div class="character-scores">
@@ -83,12 +83,12 @@
                 </div>
 
             </div>
-            
+
         </div>
 
-        <!-- (4) Settings  -->    
+        <!-- (4) Settings  -->
         <div class="tab-content" id="tab4">
-            
+
             <form id="settingsForm">
                 <label for="changeUsername">Change character name:</label>
                 <input type="text" id="changeUsername" placeholder="Input new name">
@@ -101,7 +101,121 @@
 
         <!-- (5) Battle  -->
         <div class="tab-content" id="tab5">
-            <p>There is Battle...</p>
+
+            <div class="battle-unit">
+
+                <div class="battle-process">
+                    
+                    <div id="itI">
+                        <p id="name-player-1"></p>
+                        <img src="" alt="player 1 avatar">
+                        <p id="state-player-1"></p>
+                    </div>
+
+                    <div class="fight-direction">
+
+                        <div class="checkboxes-direction">
+
+                            <div class="checkbox-attack">
+                                
+                                <h4>Attack zone</h4>
+
+                                <form action="">
+
+                                    <label>
+                                        <input name="attack" value="head" type="radio">
+                                        Head
+                                    </label>
+                                
+                                    <label>
+                                        <input name="attack" value="body" type="radio">
+                                        Body
+                                    </label>
+                                    
+                                    <label>
+                                        <input name="attack" value="lefthand" type="radio">
+                                        Left Hand
+                                    </label>
+                                    
+                                    <label>
+                                        <input name="attack" value="righthand" type="radio">
+                                        Right Hand
+                                    </label>
+                                    
+                                    <label>
+                                        <input name="attack" value="leftleg" type="radio">
+                                        Left Leg
+                                    </label>
+                                    
+                                    <label>
+                                        <input name="attack" value="rightleg" type="radio">
+                                        Right Leg
+                                    </label>
+
+                                </form>
+
+                            </div>
+
+                            <div class="checkbox-protection">
+                                <h4>Protection zone</h4>
+
+                                <form action="">
+
+                                    <label>
+                                        <input name="protection" value="head" type="checkbox">
+                                        Head
+                                    </label>
+                                
+                                    <label>
+                                        <input name="protection" value="body" type="checkbox">
+                                        Body
+                                    </label>
+                                    
+                                    <label>
+                                        <input name="protection" value="lefthand" type="checkbox">
+                                        Left Hand
+                                    </label>
+                                    
+                                    <label>
+                                        <input name="protection" value="righthand" type="checkbox">
+                                        Right Hand
+                                    </label>
+                                    
+                                    <label>
+                                        <input name="protection" value="leftleg" type="checkbox">
+                                        Left Leg
+                                    </label>
+                                    
+                                    <label>
+                                        <input name="protection" value="rightleg" type="checkbox">
+                                        Right Leg
+                                    </label>
+
+                                </form>
+                            </div>
+                        
+                        </div>
+
+                        <div class="button-direction">
+                            <button type="button" id="playBtn" disabled>Play!</button>
+                        </div>
+
+                    </div>
+
+                    <div id="enemy">
+                        <p id="name-player-2"></p>
+                        <img src="" alt="player 2 avatar">
+                        <p id="state-player-2"></p>
+                    </div>
+
+                </div>
+
+                <div class="battle-logs">
+                    <p>456</p>
+                </div>
+
+            </div>
+
         </div>
 
     </div>

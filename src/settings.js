@@ -19,6 +19,7 @@ export function initSettings() {
 
             document.getElementById('greeting').textContent = `Hello, ${name}!`;
             document.getElementById('name-player').textContent = `${name || ""}`;
+            document.getElementById('name-player-1').textContent = `${name || ""}`;
         }
 
     });

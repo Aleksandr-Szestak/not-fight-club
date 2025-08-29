@@ -13,6 +13,13 @@ export function initAvatarChoose() {
       const numberAvatar = radio.value;
       img_avatar.src = `./assets/image/good${numberAvatar}.png`;
       localStorage.setItem('storageNumberAvatar', numberAvatar);
+
+      const img_avatar_battle = document.querySelector('#itI img');
+
+      img_avatar_battle.src = numberAvatar == 0
+        ? `./assets/image/no-avatar.png`
+        : `./assets/image/good${numberAvatar}.png`;
+
     });
   });
 }
