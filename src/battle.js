@@ -51,7 +51,7 @@ export function initBattle() {
         const checked = document.querySelector('input[name="attack"]:checked');
         if (checked) {
             state.attackFlag = checked.value;
-            console.log("Attack:", state.attackFlag);
+            // console.log("Attack:", state.attackFlag);
         } else {
             state.attackFlag = '';
         }
@@ -81,7 +81,7 @@ export function initBattle() {
 
         updatePlayButton();
 
-        console.log("Protection:", state.protectionFlag);
+        // console.log("Protection:", state.protectionFlag);
     }
     //-----------------------------------------------------------------------------------
     // кнопка Play!
@@ -116,14 +116,26 @@ export function initBattle() {
         arrAttackArea.forEach((value, index, array) => {
             array[index] = arrVulnerability[value];
         });
-        // console.log('arrAttackArea', arrAttackArea);
+        console.log('Enemy Attack:', arrAttackArea);
 
         // console.log('arrProtectionArea', arrProtectionArea);
         arrProtectionArea.forEach((value, index, array) => {
             array[index] = arrVulnerability[value];
         });
-        // console.log('arrProtectionArea', arrProtectionArea);
+        console.log('Enemy Protection:', arrProtectionArea);
 
+        console.log("Attack Player:", state.attackFlag);
+        console.log("Protection Player:", state.protectionFlag);
+            
+        //-----------------------------------------------------------------
+        // Player attack
+        if (arrProtectionArea.includes(state.attackFlag)) {
+            logToConsole('128');
+        }
+
+
+
+        //-----------------------------------------------------------------
         
 
 
@@ -160,4 +172,12 @@ for (let i = 0; i < amount; i++) {
 }
 
 return arrNumbers;
+}
+
+
+// вывод в консоль игры -------------------------------------------
+function logToConsole(message) {
+const consoleDiv = document.querySelector('.battle-logs');
+consoleDiv.textContent += message + "\n";
+consoleDiv.scrollTop = consoleDiv.scrollHeight;
 }
