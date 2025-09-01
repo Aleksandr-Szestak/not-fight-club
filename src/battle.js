@@ -158,6 +158,9 @@ export function initBattle() {
 
                     // playBtn.disabled = true;
                     initNewBattle();
+
+                        playBtn.disabled = true;
+                        showNextRoundButton();
                 }
 
                 document.getElementById('state-player-2').textContent =
@@ -188,6 +191,9 @@ export function initBattle() {
                 incWins();
                 playerWin = true;
                 initNewBattle();
+
+                    playBtn.disabled = true;
+                    showNextRoundButton(); 
             }
 
             document.getElementById('state-player-2').textContent =
@@ -215,6 +221,9 @@ export function initBattle() {
                     // playBtn.disabled = true;
                     incLoses();
                     initNewBattle();
+
+                        playBtn.disabled = true;
+                        showNextRoundButton(); 
                 }
 
                 document.getElementById('state-player-1').textContent =
@@ -246,6 +255,9 @@ export function initBattle() {
                 // playBtn.disabled = true;
                 incLoses();
                 initNewBattle();
+
+                    playBtn.disabled = true;
+                    showNextRoundButton();
             } 
             
             document.getElementById('state-player-1').textContent =
@@ -289,8 +301,8 @@ function initNewBattle() {
     document.getElementById('state-player-2').textContent =
        `Health ${state.enemyHealth} / ${state.maxHealth}`;
     // сброс консоли
-    const consoleDiv = document.querySelector('.battle-logs');
-    consoleDiv.textContent = '';
+    // const consoleDiv = document.querySelector('.battle-logs');
+    // consoleDiv.textContent = '';
     // разблокировка кнопки Play!
     document.getElementById('playBtn').disabled = true;
     //-----------------------------------------------------------------------------------
@@ -347,4 +359,25 @@ function logToConsole(message) {
 const consoleDiv = document.querySelector('.battle-logs');
 consoleDiv.textContent += message + "\n";
 consoleDiv.scrollTop = consoleDiv.scrollHeight;
+}
+
+
+// показать кнопку Next Round --------------------------------------
+function showNextRoundButton() {
+    if (document.querySelector(".next-round-btn")) return;
+
+    const btn = document.createElement("button");
+    btn.textContent = "Next Round";
+    btn.classList.add("next-round-btn");
+
+    btn.onclick = () => {
+        // очистка логов только при нажатии
+        const consoleDiv = document.querySelector('.battle-logs');
+        consoleDiv.textContent = '';
+
+        btn.remove();
+        initNewBattle();
+    };
+
+    document.querySelector(".battle-logs").appendChild(btn);
 }
