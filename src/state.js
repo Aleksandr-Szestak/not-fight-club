@@ -6,8 +6,10 @@ export const createState = () => ({
     maxHealth: MAX_HEALTH,
     myHealth: MAX_HEALTH,
     enemyHealth: MAX_HEALTH,
+    forceAttack: 10,
+    forceProtection: 10,
     forceCriticalDamage: 1.5,
-    probablityCriticalDamage: 0.1,
+    probablityCriticalDamage: 0.3,
     enemyNumber: null,
     attackFlag: '',
     protectionFlag: []
@@ -22,8 +24,8 @@ export const enemies = [
         'file': 'bad1.png',
         'amountAttackArea': 1,
         'amountProtectionArea': 2,
-        'forceAttack': 3,
-        'forceProtection': 3
+        'forceAttack': 20,
+        'forceProtection': 20
     },
 
     {
@@ -31,8 +33,8 @@ export const enemies = [
         'file': 'bad2.png',
         'amountAttackArea': 2,
         'amountProtectionArea': 1,
-        'forceAttack': 2,
-        'forceProtection': 2
+        'forceAttack': 25,
+        'forceProtection': 25
     },
 
     {
@@ -40,17 +42,18 @@ export const enemies = [
         'file': 'bad3.png',
         'amountAttackArea': 2,
         'amountProtectionArea': 1,
-        'forceAttack': 2,
-        'forceProtection': 1
+        'forceAttack': 10,
+        'forceProtection': 25
     },
 
     {
         'name': 'Ghostface',
         'file': 'bad4.png',
         'amountAttackArea': 1,
-        'amountProtectionArea': 5,
-        'forceAttack': 2,
-        'forceProtection': 5
+        'amountProtectionArea': 4,
+        'forceAttack': 30,
+        
+        'forceProtection': 10
     }
 
 ];

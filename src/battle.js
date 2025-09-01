@@ -42,6 +42,8 @@ export function initBattle() {
     document.getElementById('state-player-2').textContent =
        `Health ${state.enemyHealth} / ${state.maxHealth}`;
 
+     logToConsole('\n*** START ROUND ***');  
+
     //-----------------------------------------------------------------------------------
     // радиокнопки для выбора точки атаки
     const radiobuttons = document.querySelectorAll('input[name="attack"]');
@@ -109,6 +111,7 @@ export function initBattle() {
         // console.log(state.attackFlag);
         // console.log(state.protectionFlag);
 
+        let flagCritical = false;
         let arrAttackArea = randomNumbers(5, currentAttackArea);
         let arrProtectionArea = randomNumbers(5, currentProtectionArea);
 
@@ -126,18 +129,73 @@ export function initBattle() {
 
         console.log("Attack Player:", state.attackFlag);
         console.log("Protection Player:", state.protectionFlag);
-            
+
+        // my choose vs enemy -----------------------------------------
+        // logToConsole(state.attackFlag);
+        // logToConsole(state.protectionFlag);
         //-----------------------------------------------------------------
         // Player attack
+        flagCritical = chance(state.probablityCriticalDamage);
+        // console.log('flagCritical', flagCritical);
+
         if (arrProtectionArea.includes(state.attackFlag)) {
-            logToConsole('128');
+
+            if (flagCritical) {
+                state.enemyHealth -= Math.floor(currentForceAttack * state.forceCriticalDamage);
+                logToConsole(`Player ${savedName} attacked ${enemies[numberEnemy].name} via CRITICAL DAMAGE!`);
+            } else {
+                    // атака игрока заблокирована
+                    logToConsole(`Player ${savedName} attacked ${enemies[numberEnemy].name} blocked!`);
+            }
+            
         }
+        else {
+            // атака игрока успешна
+            state.enemyHealth -= state.forceAttack;
+            
+            if (state.enemyHealth <= 0) {
+                state.enemyHealth = 0;
+                logToConsole(`*** Player WIN! ***`);
+                // playBtn.disabled = true;
+            }
 
+            document.getElementById('state-player-2').textContent =
+                `Health ${state.enemyHealth} / ${state.maxHealth}`;
 
-
+            logToConsole(`Player ${savedName} attacked ${enemies[numberEnemy].name} - success!`);
+        }
         //-----------------------------------------------------------------
-        
+        // Enemy attack
+        flagCritical = chance(state.probablityCriticalDamage);
 
+        if (state.protectionFlag.some(r => arrAttackArea.includes(r))) {
+            // атака противника заблокирована
+            logToConsole(`Enemy ${enemies[numberEnemy].name} attack - blocked!`);
+        } else {
+            
+            
+            // атака противника успешна ----------------------------------
+            let damage = enemies[numberEnemy].forceAttack;
+            
+            if (flagCritical) {
+                damage = Math.floor(damage * state.forceCriticalDamage);
+                logToConsole(`CRITICAL DAMAGE!`);
+            }
+
+            state.myHealth -= damage;
+            
+            if (state.myHealth <= 0) {
+                state.myHealth = 0;
+                logToConsole(`*** Enemy WIN! ***`);
+            } 
+            
+            document.getElementById('state-player-1').textContent =
+                `Health ${state.myHealth} / ${state.maxHealth}`;
+
+            logToConsole(`Enemy hits you for ${damage} damage!`);
+            logToConsole(`Enemy ${enemies[numberEnemy].name} attacked player ${savedName} - success!`);
+
+        }
 
     });
 }

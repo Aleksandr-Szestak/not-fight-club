@@ -20,9 +20,10 @@
   grid-row: 2;
   padding: 10px;
   background-color: #1e1e1e;
-  color: #d4d4d4;
+  color: #06fd44;
   border: 1px solid #444;
   font-family: monospace;
+  font-size: 1.5em;
   overflow-y: auto;
   white-space: pre-wrap;
 }
