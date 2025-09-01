@@ -1,4 +1,5 @@
 import {state, enemies, arrVulnerability} from "./state.js";
+import { incWins, incLoses } from "./playerstats.js";
 
 export function initBattle() {
 
@@ -137,6 +138,7 @@ export function initBattle() {
         // logToConsole(state.protectionFlag);
         //-----------------------------------------------------------------
         // Player attack
+        let playerWin = false;
         flagCritical = chance(state.probablityCriticalDamage);
         // console.log('flagCritical', flagCritical);
 
@@ -151,7 +153,11 @@ export function initBattle() {
                 if (state.enemyHealth <= 0) {
                     state.enemyHealth = 0;
                     logToConsole(`*** Player WIN! ***`);
+                    incWins();
+                    playerWin = true;
+
                     // playBtn.disabled = true;
+                    initNewBattle();
                 }
 
                 document.getElementById('state-player-2').textContent =
@@ -179,12 +185,18 @@ export function initBattle() {
                 state.enemyHealth = 0;
                 logToConsole(`*** Player WIN! ***`);
                 // playBtn.disabled = true;
+                incWins();
+                playerWin = true;
+                initNewBattle();
             }
 
             document.getElementById('state-player-2').textContent =
                 `Health ${state.enemyHealth} / ${state.maxHealth}`;
             
         }
+        //-----------------------------------------------------------------
+        if (playerWin) 
+            return; // если игрок выиграл, то ход противника не выполняется
         //-----------------------------------------------------------------
         // Enemy attack
         flagCritical = chance(state.probablityCriticalDamage);
@@ -201,6 +213,8 @@ export function initBattle() {
                     state.myHealth = 0;
                     logToConsole(`*** Enemy WIN! ***`);
                     // playBtn.disabled = true;
+                    incLoses();
+                    initNewBattle();
                 }
 
                 document.getElementById('state-player-1').textContent =
@@ -230,6 +244,8 @@ export function initBattle() {
                 state.myHealth = 0;
                 logToConsole(`*** Enemy WIN! ***`);
                 // playBtn.disabled = true;
+                incLoses();
+                initNewBattle();
             } 
             
             document.getElementById('state-player-1').textContent =
@@ -239,6 +255,59 @@ export function initBattle() {
 
     });
 }
+
+
+//новая игра
+function initNewBattle() {
+
+    // сброс состояния здоровья
+    state.myHealth = state.maxHealth;
+    state.enemyHealth = state.maxHealth;
+    document.getElementById('state-player-1').textContent = `Health ${state.myHealth} / ${state.maxHealth}`;
+    document.getElementById('state-player-2').textContent = `Health ${state.enemyHealth} / ${state.maxHealth}`;
+    logToConsole('\n*** NEW ROUND ***');
+    // сброс выбора игрока
+    state.attackFlag = '';
+    state.protectionFlag = [];
+    const radiobuttons = document.querySelectorAll('input[name="attack"]');
+    radiobuttons.forEach(rb => rb.checked = false);
+    const checkboxes = document.querySelectorAll('input[name="protection"]');
+    checkboxes.forEach(cb => { cb.checked = false; cb.disabled = false; });
+    document.getElementById('playBtn').disabled = true;
+    // выбор нового противника
+    const amountEnemies = enemies.length;
+    const numberEnemy = getRandomInt(amountEnemies);
+    state.enemyNumber = numberEnemy;
+    console.log(numberEnemy, enemies[numberEnemy]);
+    // имя противника
+    document.getElementById('name-player-2').textContent = `${enemies[numberEnemy].name || ""}`;
+    // аватар противника
+    document.querySelector('#enemy img').src = numberEnemy >= amountEnemies
+        ? `./assets/image/no-avatar.png`
+        : `./assets/image/${enemies[numberEnemy].file}`;
+    // состояние здоровья противника
+    document.getElementById('state-player-2').textContent =
+       `Health ${state.enemyHealth} / ${state.maxHealth}`;
+    // сброс консоли
+    const consoleDiv = document.querySelector('.battle-logs');
+    consoleDiv.textContent = '';
+    // разблокировка кнопки Play!
+    document.getElementById('playBtn').disabled = true;
+    //-----------------------------------------------------------------------------------
+    // аватар игрока
+    const savedNumberAvatar = localStorage.getItem('storageNumberAvatar');
+    let numberAvatar = +savedNumberAvatar;
+    const img_avatar_battle = document.querySelector('#itI img');
+    img_avatar_battle.src = numberAvatar == 0
+        ? `./assets/image/no-avatar.png`
+        : `./assets/image/good${numberAvatar}.png`;
+    // имя игрока
+    const savedName = localStorage.getItem('username');
+    document.getElementById('name-player-1').textContent = `${savedName || ""}`;
+    //-----------------------------------------------------------------------------------
+    return;
+}
+
 
 
 //-----------------------------------------------------------------------------------
