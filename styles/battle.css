@@ -1,7 +1,7 @@
 .battle-unit {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 4fr 1fr;
+  grid-template-rows: auto 1fr;
   height: 100%;
   gap: 10px;
 }
@@ -11,19 +11,18 @@
 }
 
 .battle-process > div {
-  border: red 1px dotted;
+  /* border: red 1px dotted; */
   padding: 10px;
 }
 
 .battle-logs {
   grid-column: 1 / -1;
+  grid-row: 2;
   padding: 10px;
   background-color: #1e1e1e;
   color: #d4d4d4;
   border: 1px solid #444;
-
   font-family: monospace;
-  height: auto;
   overflow-y: auto;
   white-space: pre-wrap;
 }
